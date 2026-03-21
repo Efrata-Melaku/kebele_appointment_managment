@@ -5,6 +5,18 @@ const jwt=require('jsonwebtoken');
 
 //register user
 exports.register=async(req , res)=>{
+    const {name, email, password, role}=req.body;
+    const hashedpassword=await bcrypt.hash(password,10);
+    const user=await prisma. user.create({
+        data:{
+            name,
+            email:email,
+            password:hashedpassword,
+            role:role
+        }
+    });
+    res.json(user);
+    
 
 }
 
