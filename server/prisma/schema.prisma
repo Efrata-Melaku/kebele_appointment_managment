@@ -92,3 +92,15 @@ enum Role {
   ADMIN
   STAFF
 }
+  model Houseowner {
+  kebeleID String @id
+  firstName String
+  lastName String
+  dateOfBirth DateTime
+  gender String
+  address String
+  phoneNumber String
+  familyInfo String?
+  maxRepresentations Int 
+  eligibilityCheck Boolean @default(false)
+}
